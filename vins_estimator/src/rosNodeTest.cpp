@@ -84,11 +84,13 @@ void sync_process()
                 double time1 = img1_buf.front()->header.stamp.toSec();
                 // 0.003s sync tolerance
                 if(time0 < time1 - 0.003)
+                //if(time0 < time1 - 0.01) //modified by spx 
                 {
                     img0_buf.pop();
                     printf("throw img0\n");
                 }
                 else if(time0 > time1 + 0.003)
+                //else if(time0 > time1 + 0.01) //modified by spx 
                 {
                     img1_buf.pop();
                     printf("throw img1\n");
